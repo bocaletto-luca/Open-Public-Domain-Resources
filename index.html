@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Open & Public Domain Resources | Luca Bocaletto</title>
+  <meta name="description" content="A curated directory of high-quality open and public domain resources: free books, music, art, educational content, videos, archives, audiobooks and more." />
+  <meta name="keywords" content="public domain, open resources, free books, free music, free art, educational resources, OER, archives, audiobooks" />
+  <meta name="author" content="Luca Bocaletto" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Open & Public Domain Resources" />
+  <meta property="og:description" content="Explore a comprehensive list of free and open-license books, music, art, educational materials, videos, archives, and audiobooks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+
+  <!-- Styles -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    header select {
+      padding: 8px 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+    }
+    .table-container {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #005bbb;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+    a {
+      color: #005bbb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Open & Public Domain Resources</h1>
+      <select id="categorySelect">
+        <option value="all">All Categories</option>
+      </select>
+    </header>
+
+    <div class="table-container">
+      <table id="resourceTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows injected by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const resources = [
+      // Books
+      { category: "Books", name: "Project Gutenberg", description: "Over 60,000 free eBooks in multiple languages.", url: "https://www.gutenberg.org" },
+      { category: "Books", name: "Liber Liber", description: "Italian public domain library: eBooks, audiobooks and scores.", url: "https://www.liberliber.it" },
+      { category: "Books", name: "Biblioteca Italiana", description: "Extensive collection of Italian literary classics.", url: "https://www.bibliotecaitaliana.it" },
+      { category: "Books", name: "ManyBooks", description: "Public domain eBooks and CC-licensed titles.", url: "https://manybooks.net" },
+      { category: "Books", name: "Open Library", description: "Internet Archive catalog: borrow digital editions and public domain works.", url: "https://openlibrary.org" },
+
+      // Music
+      { category: "Music", name: "IMSLP", description: "Global archive of public domain musical scores.", url: "https://imslp.org" },
+      { category: "Music", name: "Musopen", description: "Recordings, sheet music, and educational materials.", url: "https://www.musopen.org" },
+      { category: "Music", name: "Free Music Archive", description: "High-quality, legal audio downloads.", url: "https://freemusicarchive.org" },
+      { category: "Music", name: "Jamendo", description: "Community of artists sharing music under Creative Commons.", url: "https://www.jamendo.com" },
+      { category: "Music", name: "Choral Public Domain Library", description: "Vast collection of public domain choral works.", url: "https://www.cpdl.org" },
+      { category: "Music", name: "Internet Archive Audio", description: "Concerts, radio shows, and historical recordings.", url: "https://archive.org/details/audio" },
+
+      // Art
+      { category: "Art", name: "WikiArt", description: "Visual art encyclopedia with public domain images.", url: "https://www.wikiart.org" },
+      { category: "Art", name: "Europeana", description: "Digital collection from European cultural institutions.", url: "https://www.europeana.eu" },
+      { category: "Art", name: "The Met Open Access", description: "Metropolitan Museum of Art public domain images.", url: "https://www.metmuseum.org/art/collection/search#!?q=Public%20Domain" },
+      { category: "Art", name: "Rijksmuseum", description: "High-resolution Dutch Golden Age masterpieces.", url: "https://www.rijksmuseum.nl/en/rijksstudio" },
+      { category: "Art", name: "National Gallery of Art", description: "Open access collection of paintings and sculptures.", url: "https://www.nga.gov/openaccess.html" },
+      { category: "Art", name: "Digital Public Library of America", description: "Millions of images, manuscripts, and art from US collections.", url: "https://dp.la" },
+
+      // Education
+      { category: "Education", name: "Didattica Generale", description: "Slides, videos, and handouts for all subjects and grades.", url: "https://didatticagenerale.it" },
+      { category: "Education", name: "DidatticAttiva", description: "Interactive worksheets and OER-based exercises.", url: "https://www.didatticattiva.com" },
+      { category: "Education", name: "WeSchool (Oilproject)", description: "Free video lessons and quizzes across STEM and humanities.", url: "https://weschool.oilproject.org" },
+      { category: "Education", name: "Federica Web Learning", description: "Italian university courses freely available online.", url: "https://www.federica.eu" },
+      { category: "Education", name: "Matematicamente", description: "Math lessons and exercises for middle and high school.", url: "https://www.matematicamente.it" },
+      { category: "Education", name: "Khan Academy", description: "Free interactive lessons in math, science, and more.", url: "https://it.khanacademy.org" },
+      { category: "Education", name: "MIT OpenCourseWare", description: "Free course materials from MIT’s syllabus.", url: "https://ocw.mit.edu" },
+      { category: "Education", name: "Coursera Free Courses", description: "Audit university-level courses at no charge.", url: "https://www.coursera.org" },
+
+      // Video
+      { category: "Video", name: "Internet Archive Video", description: "Public domain films, documentaries and home movies.", url: "https://archive.org/details/movies" },
+      { category: "Video", name: "Prelinger Archives", description: "Vintage advertising, educational and industrial films.", url: "https://archive.org/details/prelinger" },
+      { category: "Video", name: "Pexels Videos", description: "Free stock video footage for creative projects.", url: "https://www.pexels.com/videos" },
+
+      // Archives
+      { category: "Archives", name: "Internet Archive", description: "Universal digital library: books, audio, video, software.", url: "https://archive.org" },
+      { category: "Archives", name: "Digital Public Library of America", description: "Open access to US cultural heritage collections.", url: "https://dp.la" },
+
+      // Audiobooks
+      { category: "Audiobooks", name: "LibriVox", description: "Volunteer-read public domain audiobooks.", url: "https://librivox.org" },
+      { category: "Audiobooks", name: "Open Culture Audiobooks", description: "Handpicked free audiobooks in multiple languages.", url: "https://www.openculture.com/freeaudiobooks" }
+    ];
+
+    function populateCategories() {
+      const select = document.getElementById('categorySelect');
+      const categories = Array.from(new Set(resources.map(r => r.category)));
+      categories.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderTable(category) {
+      const tbody = document.querySelector('#resourceTable tbody');
+      tbody.innerHTML = '';
+      const list = category === 'all' 
+        ? resources 
+        : resources.filter(r => r.category === category);
+
+      list.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.name}</td>
+          <td>${r.description}</td>
+          <td><a href="${r.url}" target="_blank" rel="noopener">Visit</a></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      populateCategories();
+      renderTable('all');
+      document.getElementById('categorySelect')
+              .addEventListener('change', e => renderTable(e.target.value));
+    });
+  </script>
+</body>
+</html>
