@@ -6,19 +6,18 @@
 
   <!-- SEO Meta Tags -->
   <title>Open & Public Domain Resources | Luca Bocaletto</title>
-  <meta name="description" content="A curated directory of high-quality open and public domain resources: free books, music, art, educational content, videos, archives, audiobooks and more." />
-  <meta name="keywords" content="public domain, open resources, free books, free music, free art, educational resources, OER, archives, audiobooks" />
+  <meta name="description" content="A curated directory of high-quality open and public domain resources: free books, music, art, educational content, videos, archives, audiobooks, and developer platforms." />
+  <meta name="keywords" content="public domain, open resources, free books, free music, free art, educational resources, videos, archives, audiobooks, developer platforms, GitHub, GitLab, CodePen" />
   <meta name="author" content="Luca Bocaletto" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://yourdomain.com/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Open & Public Domain Resources" />
-  <meta property="og:description" content="Explore a comprehensive list of free and open-license books, music, art, educational materials, videos, archives, and audiobooks." />
+  <meta property="og:description" content="Explore a comprehensive list of free and open-license books, music, art, educational materials, videos, archives, audiobooks, and developer platforms." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yourdomain.com/" />
 
-  <!-- Styles -->
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -157,7 +156,20 @@
 
       // Audiobooks
       { category: "Audiobooks", name: "LibriVox", description: "Volunteer-read public domain audiobooks.", url: "https://librivox.org" },
-      { category: "Audiobooks", name: "Open Culture Audiobooks", description: "Handpicked free audiobooks in multiple languages.", url: "https://www.openculture.com/freeaudiobooks" }
+      { category: "Audiobooks", name: "Open Culture Audiobooks", description: "Handpicked free audiobooks in multiple languages.", url: "https://www.openculture.com/freeaudiobooks" },
+
+      // Technology
+      { category: "Technology", name: "GitHub", description: "World’s leading software development platform for version control and collaboration.", url: "https://github.com" },
+      { category: "Technology", name: "GitLab", description: "Open-core code hosting with built-in CI/CD pipelines and DevOps features.", url: "https://gitlab.com" },
+      { category: "Technology", name: "Bitbucket", description: "Git code hosting and collaboration tool by Atlassian.", url: "https://bitbucket.org" },
+      { category: "Technology", name: "SourceForge", description: "Open source software development and distribution platform.", url: "https://sourceforge.net" },
+      { category: "Technology", name: "CodePen", description: "Social development environment for front-end designers and developers.", url: "https://codepen.io" },
+      { category: "Technology", name: "JSFiddle", description: "Online IDE for testing HTML, CSS, and JavaScript snippets.", url: "https://jsfiddle.net" },
+      { category: "Technology", name: "CodeSandbox", description: "Online editor tailored for web application development.", url: "https://codesandbox.io" },
+      { category: "Technology", name: "Glitch", description: "Friendly community where everyone can build the app of their dreams.", url: "https://glitch.com" },
+      { category: "Technology", name: "Stack Overflow", description: "Largest Q&A platform for professional and enthusiast programmers.", url: "https://stackoverflow.com" },
+      { category: "Technology", name: "MDN Web Docs", description: "Comprehensive resource for developers, maintained by Mozilla.", url: "https://developer.mozilla.org" },
+      { category: "Technology", name: "FreeCodeCamp", description: "Interactive lessons, coding challenges, and community projects.", url: "https://www.freecodecamp.org" }
     ];
 
     function populateCategories() {
@@ -174,8 +186,8 @@
     function renderTable(category) {
       const tbody = document.querySelector('#resourceTable tbody');
       tbody.innerHTML = '';
-      const list = category === 'all' 
-        ? resources 
+      const list = category === 'all'
+        ? resources
         : resources.filter(r => r.category === category);
 
       list.forEach(r => {
